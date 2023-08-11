@@ -1,0 +1,616 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>C基础知识点总结 | 查干湖的博客</title><meta name="author" content="查干湖,xuwenbolan@163.com"><meta name="copyright" content="查干湖"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="C基础知识点总结概念部分解释型与编译型语言 计算机是不能理解高级语言的，更不能直接执行高级语言，它只能直接理解机器语言，所以使用任何高级语言编写的程序若想被计算机运行，都必须将其转换成计算机语言所谓二进制指令，也就是由 0 和 1 组成的机器码，能被计算机直接识别并执行  编译型语言：​		编译语言（Compiled language）是一种编程语言类型，通过编译器来实现。它不像解释型语言一样，由">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C基础知识点总结">
+<meta property="og:url" content="http://38s51g4590.goho.co:81/2023/01/11/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="查干湖的博客">
+<meta property="og:description" content="C基础知识点总结概念部分解释型与编译型语言 计算机是不能理解高级语言的，更不能直接执行高级语言，它只能直接理解机器语言，所以使用任何高级语言编写的程序若想被计算机运行，都必须将其转换成计算机语言所谓二进制指令，也就是由 0 和 1 组成的机器码，能被计算机直接识别并执行  编译型语言：​		编译语言（Compiled language）是一种编程语言类型，通过编译器来实现。它不像解释型语言一样，由">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/mind-544404_1280.png">
+<meta property="article:published_time" content="2023-01-11T10:00:00.000Z">
+<meta property="article:modified_time" content="2023-02-14T13:31:34.611Z">
+<meta property="article:author" content="查干湖">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/mind-544404_1280.png"><link rel="shortcut icon" href="/img/%E5%A4%B4%E5%83%8F1.png"><link rel="canonical" href="http://38s51g4590.goho.co:81/2023/01/11/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/jscss/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0b369db88206e24a08f4a63ca50eb6c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"It has been","messageNext":"距离文章更新已经过去很久了，内容或许会出现错误，请谅解！"},
+  highlight: {"plugin":"highlighjs","highlightCopy":false,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C基础知识点总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-14 21:31:34'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%A4%B4%E5%83%8F1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/%E5%A3%81%E7%BA%B88.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">查干湖的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C基础知识点总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-11T10:00:00.000Z" title="发表于 2023-01-11 18:00:00">2023-01-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-14T13:31:34.611Z" title="更新于 2023-02-14 21:31:34">2023-02-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/">程序语言</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="C基础知识点总结"><a href="#C基础知识点总结" class="headerlink" title="C基础知识点总结"></a>C基础知识点总结</h1><h1 id="概念部分"><a href="#概念部分" class="headerlink" title="概念部分"></a>概念部分</h1><h2 id="解释型与编译型语言"><a href="#解释型与编译型语言" class="headerlink" title="解释型与编译型语言"></a>解释型与编译型语言</h2><blockquote>
+<p>计算机是不能理解高级语言的，更不能直接执行高级语言，它只能直接理解机器语言，所以使用任何高级语言编写的程序若想被计算机运行，都必须将其转换成计算机语言所谓二进制指令，也就是由 0 和 1 组成的机器码，能被计算机直接识别并执行</p>
+</blockquote>
+<h3 id="编译型语言："><a href="#编译型语言：" class="headerlink" title="编译型语言："></a>编译型语言：</h3><p>​		编译语言（Compiled language）是一种编程语言类型，通过编译器来实现。它不像解释型语言一样，由解释器将代码一句一句运行，而是以编译器，先将代码编译为机器代码，再加以运行。理论上，任何编程语言都可以是编译式，或直译(解释)式的。它们之间的区别，仅与程序的应用有关（中文维基百科）</p>
+<p>​		一般而言，用编译语言写成的程序，在运行期的运行速度，通常比用解释型语言写的程序快。因为程序在编译期，已经被预先编译成机器代码，可以直接运行，不用像解释型语言一样，还要多一道直译程序。</p>
+<p>但是要先进行编译，之后才能运行程序，这也造成了编译语言的缺点。一般而言，编译语言的程序开发速度，以及调试时间，都是比较长的。因为它不像解释型语言可以写完一行，或一小段程序之后，马上运行，马上调试。解释型语言通常让程序开发的整体时间变少，在开发过程中，程序师也可以更弹性、快速的测试自己的想法。</p>
+<p>为了改善编译语言的效率而发展出的&#x3D;&#x3D;即时编译技术&#x3D;&#x3D;，已经缩小了这两种语言间的差距。这种技术混合了编译语言与解释型语言的优点，它像编译语言一样，先把程序源代码编译成字节码。到运行期时，再将字节码直译，之后运行，Java与LLVM是这种技术的代表产物</p>
+<h3 id="解释型语言："><a href="#解释型语言：" class="headerlink" title="解释型语言："></a>解释型语言：</h3><p>​		解释型语言（英语：Interpreted language）是一种编程语言类型。这种类型的编程语言，会将代码一句一句直接运行，不需要像编译语言（Compiled language）一样，经过编译器先行编译为机器代码，之后再运行。这种编程语言需要利用解释器，在运行期，动态将代码逐句解释（interpret）为机器代码，或是已经预先编译为机器代码的子程序，之后再运行。（中文维基百科）</p>
+<p>理论上，任何编程语言都可以是编译式，或解释型的。它们之间的区别，仅与程序的应用有关。许多编程语言同时采用编译器与解释器来实现，其中包括Lisp，Pascal，C，BASIC 与 Python。JAVA及C#采用混合方式，先将代码编译为字节码，在运行时再进行解释</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic4.zhimg.com/80/v2-40b5af66cefabec053f4025e68d3bdeb_1440w.webp"></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>原理</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>编译型语言</td>
+<td>通过专门的编译器，将所有源代码一次性转换成特定平台（Windows、Linux、macOS等）的机器码（以可执行文件的形式存在）。</td>
+<td>编译一次后，脱离了编译器也能运行，并且运行效率高。</td>
+<td>可移植性差，不够灵活。</td>
+</tr>
+<tr>
+<td>解释型语言</td>
+<td>通过专门的解释器，根据需要可以将部分或全部源代码转换成特定平台（Windos、Linux、macOS等）的机器码。</td>
+<td>跨平台性好，通过不同的解释器，将相同的源代码解释成不同平台下的机器码。</td>
+<td>一边执行一边转换，效率较低。</td>
+</tr>
+</tbody></table>
+<h2 id="解释器与编译器"><a href="#解释器与编译器" class="headerlink" title="解释器与编译器"></a>解释器与编译器</h2><h3 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h3><ol>
+<li>编译器读取源代码，输出可执行代码</li>
+<li>将用高级语言编写的软件翻译成计算机可以理解的指令，它把程序员写的文本转换成CPU能理解的格式</li>
+<li>编译的过程比较复杂，它花了很多时间分析和处理程序</li>
+<li>可执行结果是某种形式的特定于机器的二进制代码</li>
+<li>编译器是一种程序，它读取用高级语言编写的程序，并将其转换为机器语言或低级语言，并报告程序中出现的错误</li>
+</ol>
+<h3 id="解释器"><a href="#解释器" class="headerlink" title="解释器"></a>解释器</h3><ol>
+<li>解释器在运行时逐行转换源代码</li>
+<li>解释完全将一个用高级语言编写的程序翻译成机器级语言</li>
+<li>解释器允许在程序执行时求值和修改程序</li>
+<li>用于分析和处理程序的时间相对较少</li>
+<li>与编译器相比，程序执行相对缓慢</li>
+</ol>
+<p><strong>注：</strong> <strong>Java既是编译的又是解释的，Java代码本身被编译成目标代码。在运行时，JVM将目标代码解释为目标计算机的机器代码。</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/20230214140614.png"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Interpreter(解释器）</th>
+<th>compare(编译器)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>程序步骤</td>
+<td>1、创建代码 2、没有文件链接或机器代码生成 3、源语句在执行过程中逐行执行</td>
+<td>1、创建代码 2、Compile将解析或分析所有语言语句的正确性。如果不正确，则抛出错误 3、如果没有错误，编译器将把源代码转换为机器码 4、它将不同的代码文件链接到一个可运行的程序(称为exe) 5、运行程序</td>
+</tr>
+<tr>
+<td>Input(输入)</td>
+<td>每次读取一行</td>
+<td>整个程序</td>
+</tr>
+<tr>
+<td>Output(输出)</td>
+<td>不产生任何的中间代码</td>
+<td>生成中间目标代码</td>
+</tr>
+<tr>
+<td>工作机制</td>
+<td>编译和执行同时进行</td>
+<td>编译在执行之前完成</td>
+</tr>
+<tr>
+<td>存储</td>
+<td>不保存任何机器代码</td>
+<td>存储编译后的机器代码在机器上</td>
+</tr>
+<tr>
+<td>执行</td>
+<td>程序执行是解释过程的一部分，因此是逐行执行的</td>
+<td>程序执行与编译是分开的，它只在整个输出程序编译后执行</td>
+</tr>
+<tr>
+<td>生成程序</td>
+<td>不生成输出程序，所以他们在每次执行过程中都要评估源程序</td>
+<td>生成可以独立于原始程序运行的输出程序(以exe的形式)</td>
+</tr>
+<tr>
+<td>修改</td>
+<td>直接修改就可运行</td>
+<td>如果需要修改代码，则需要修改源代码，重新编译</td>
+</tr>
+<tr>
+<td>运行速度</td>
+<td>慢</td>
+<td>快</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>它需要较少的内存，因为它不创建中间对象代码</td>
+<td>内存需求更多的是由于目标代码的创建</td>
+</tr>
+<tr>
+<td>错误</td>
+<td>解释器读取一条语句并显示错误(如果有的话)。你必须纠正错误才能解释下一行</td>
+<td>编译器在编译时显示所有错误和警告。因此，不修正错误就不能运行程序</td>
+</tr>
+<tr>
+<td>错误监测</td>
+<td>容易</td>
+<td>难</td>
+</tr>
+<tr>
+<td>编程语言</td>
+<td>PHP, Perl, Python, Ruby</td>
+<td>C, C++, C#, Scala, Java</td>
+</tr>
+</tbody></table>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>在 C 语言中，数据类型指的是用于声明不同类型的变量或函数的一个广泛的系统。变量的类型决定了变量存储占用的空间，以及如何解释存储的位模式。</p>
+<p>C 中的类型可分为以下几种：</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">类型与描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><strong>基本类型：</strong> 它们是算术类型，包括两种类型：整数类型和浮点类型。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><strong>枚举类型：</strong> 它们也是算术类型，被用来定义在程序中只能赋予其一定的离散整数值的变量。</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><strong>void 类型：</strong> 类型说明符 <em>void</em> 表明没有可用的值。</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><strong>派生类型：</strong> 它们包括：指针类型、数组类型、结构类型、共用体类型和函数类型。</td>
+</tr>
+</tbody></table>
+<p>数组类型和结构类型统称为聚合类型。函数的类型指的是函数返回值的类型。在本章节接下来的部分我们将介绍基本类型，其他几种类型会在后边几个章节中进行讲解。</p>
+<h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3><p>下表列出了关于标准整数类型的存储大小和值范围的细节：</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">存储大小</th>
+<th align="left">值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">char</td>
+<td align="left">1 字节</td>
+<td align="left">-128 到 127 或 0 到 255</td>
+</tr>
+<tr>
+<td align="left">unsigned char</td>
+<td align="left">1 字节</td>
+<td align="left">0 到 255</td>
+</tr>
+<tr>
+<td align="left">signed char</td>
+<td align="left">1 字节</td>
+<td align="left">-128 到 127</td>
+</tr>
+<tr>
+<td align="left">int</td>
+<td align="left">2 或 4 字节</td>
+<td align="left">-32,768 到 32,767 或 -2,147,483,648 到 2,147,483,647</td>
+</tr>
+<tr>
+<td align="left">unsigned int</td>
+<td align="left">2 或 4 字节</td>
+<td align="left">0 到 65,535 或 0 到 4,294,967,295</td>
+</tr>
+<tr>
+<td align="left">short</td>
+<td align="left">2 字节</td>
+<td align="left">-32,768 到 32,767</td>
+</tr>
+<tr>
+<td align="left">unsigned short</td>
+<td align="left">2 字节</td>
+<td align="left">0 到 65,535</td>
+</tr>
+<tr>
+<td align="left">long</td>
+<td align="left">4 字节</td>
+<td align="left">-2,147,483,648 到 2,147,483,647</td>
+</tr>
+<tr>
+<td align="left">unsigned long</td>
+<td align="left">4 字节</td>
+<td align="left">0 到 4,294,967,295</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意，各种类型的存储大小与系统位数有关，但目前通用的以64位系统为主。</p>
+<p>以下列出了32位系统与64位系统的存储大小的差别（windows 相同）：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/32-64.jpg" alt="img"></p>
+</blockquote>
+<p>为了得到某个类型或某个变量在特定平台上的准确大小，您可以使用 <strong>sizeof</strong> 运算符。表达式 <em>sizeof(type)</em> 得到对象或类型的存储字节大小。下面的实例演示了获取 int 类型的大小：</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;limits.h&gt;</span>  </span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> </span><br><span class="line">&#123;   </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;int 存储大小 : %lu \n&quot;</span>, <span class="keyword">sizeof</span>(<span class="type">int</span>));      </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>%lu</strong> 为 32 位无符号整数，详细说明查看 <a target="_blank" rel="noopener" href="https://www.runoob.com/cprogramming/c-function-printf.html">C 库函数 - printf()</a>。</p>
+<p>在 Linux 上编译并执行上面的程序时，它会产生下列结果：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> 存储大小 : <span class="number">4</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id="浮点类型"><a href="#浮点类型" class="headerlink" title="浮点类型"></a>浮点类型</h3><p>下表列出了关于标准浮点类型的存储大小、值范围和精度的细节：</p>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">存储大小</th>
+<th align="left">值范围</th>
+<th align="left">精度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">float</td>
+<td align="left">4 字节</td>
+<td align="left">1.2E-38 到 3.4E+38</td>
+<td align="left">6 位有效位</td>
+</tr>
+<tr>
+<td align="left">double</td>
+<td align="left">8 字节</td>
+<td align="left">2.3E-308 到 1.7E+308</td>
+<td align="left">15 位有效位</td>
+</tr>
+<tr>
+<td align="left">long double</td>
+<td align="left">16 字节</td>
+<td align="left">3.4E-4932 到 1.1E+4932</td>
+<td align="left">19 位有效位</td>
+</tr>
+</tbody></table>
+<p>头文件 float.h 定义了宏，在程序中可以使用这些值和其他有关实数二进制表示的细节。下面的实例将输出浮点类型占用的存储空间以及它的范围值：</p>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;float.h&gt;</span>  </span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> </span><br><span class="line">&#123;   </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;float 存储最大字节数 : %lu \n&quot;</span>, <span class="keyword">sizeof</span>(<span class="type">float</span>));   </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;float 最小值: %E\n&quot;</span>, FLT_MIN );   </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;float 最大值: %E\n&quot;</span>, FLT_MAX );   </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;精度值: %d\n&quot;</span>, FLT_DIG );      </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>%E</strong> 为以指数形式输出单、双精度实数，详细说明查看 <a target="_blank" rel="noopener" href="https://www.runoob.com/cprogramming/c-function-printf.html">C 库函数 - printf()</a>。</p>
+<p>在 Linux 上编译并执行上面的程序时，它会产生下列结果：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> 存储最大字节数 : <span class="number">4</span> </span><br><span class="line"><span class="type">float</span> 最小值: <span class="number">1.175494E-38</span></span><br><span class="line"><span class="type">float</span> 最大值: <span class="number">3.402823E+38</span></span><br><span class="line">精度值: <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="void-类型"><a href="#void-类型" class="headerlink" title="void 类型"></a>void 类型</h3><p>void 类型指定没有可用的值。它通常用于以下三种情况下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">类型与描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><strong>函数返回为空</strong> C 中有各种函数都不返回值，或者您可以说它们返回空。不返回值的函数的返回类型为空。例如 <strong>void exit (int status);</strong></td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><strong>函数参数为空</strong> C 中有各种函数不接受任何参数。不带参数的函数可以接受一个 void。例如 <strong>int rand(void);</strong></td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><strong>指针指向 void</strong> 类型为 void * 的指针代表对象的地址，而不是类型。例如，内存分配函数 <strong>void *malloc( size_t size );</strong> 返回指向 void 的指针，可以转换为任何数据类型。</td>
+</tr>
+</tbody></table>
+<h1 id="数据结构部分"><a href="#数据结构部分" class="headerlink" title="数据结构部分"></a>数据结构部分</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><blockquote>
+<p>数组由<strong>数据类型</strong>相同的一系列元素组成顺序集合</p>
+</blockquote>
+<h3 id="定义一个字符串的方式"><a href="#定义一个字符串的方式" class="headerlink" title="定义一个字符串的方式"></a>定义一个字符串的方式</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> *str = <span class="string">&quot;Hello world!&quot;</span>;  <span class="comment">//这是一个指针字符串</span></span><br><span class="line"><span class="type">char</span> str[] = <span class="string">&quot;Hello world!&quot;</span>; <span class="comment">//这是一个数组字符串</span></span><br></pre></td></tr></table></figure>
+
+<p>它们之间的区别在于第一个字符串是<strong>不可修改</strong>的，它属于<strong>常量区</strong>。第二个字符串却是可修改的，它属于<strong>全局静态区</strong>或<strong>栈区</strong></p>
+<h3 id="给数组元素赋值"><a href="#给数组元素赋值" class="headerlink" title="给数组元素赋值"></a>给数组元素赋值</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span>  <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIZE 50 </span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span> </span><br><span class="line">&#123; </span><br><span class="line">    <span class="type">int</span> counter, evens[SIZE]; </span><br><span class="line">    <span class="keyword">for</span> (counter = <span class="number">0</span>; counter &lt; SIZE; counter++) evens[counter] = <span class="number">2</span> * counter;</span><br><span class="line">    ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 注意这段代码中使用循环给数组的元素依次赋值。</p>
+<p>C 不允许把数组作为 一个单元赋给另一个数组，除初始化以外也不允许使用花括号列表的形式赋 值。</p>
+<p>下面的代码段演示了一些错误的赋值形式: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 一些无效的数组赋值 */</span> </span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIZE 5 </span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span> </span><br><span class="line">&#123; </span><br><span class="line">    <span class="type">int</span> oxen[SIZE] = &#123;<span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">8</span>&#125;; <span class="comment">/* 初始化没问题 */</span> </span><br><span class="line">    <span class="type">int</span> yaks[SIZE]; </span><br><span class="line">    yaks = oxen; <span class="comment">/* 不允许 */</span> </span><br><span class="line">    yaks[SIZE] = oxen[SIZE]; <span class="comment">/* 数组下标越界 */</span> </span><br><span class="line">    yaks[SIZE] = &#123;<span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">8</span>&#125;; <span class="comment">/* 不起作用 */</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>oxen数组的最后一个元素是oxen[SIZE-1]，所以oxen[SIZE]和yaks[SIZE] 都超出了两个数组的末尾。</p>
+<h3 id="数组边界"><a href="#数组边界" class="headerlink" title="数组边界"></a>数组边界</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str[<span class="number">5</span>] = <span class="string">&quot;Hello&quot;</span>;       <span class="comment">//这是一个危险的字符串</span></span><br></pre></td></tr></table></figure>
+
+<p>对于这个字符串，虽然在语法上没有任何问题，但它会导致数组发生越界的危险。</p>
+<p>一般我们初始化一个数组，编译器会自动在最后一位的后面补‘\0’以确定数组的边界，但当数组的大小不足以补’\0’时，就会出现越界的危险！</p>
+<p>这要归功于，C语言信任程序员的原则，不检查边界，C 程序可以运行更快。编译器没必要捕获所有的下标错 误，因为在程序运行之前，数组的下标值可能尚未确定。因此，为安全起 见，编译器必须在运行时添加额外代码检查数组的每个下标值，这会降低程 序的运行速度。C 相信程序员能编写正确的代码，这样的程序运行速度更 快。但并不是所有的程序员都能做到这一点，所以就出现了下标越界的问题。</p>
+<h3 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h3><p>多维数组最简单的形式是二维数组。一个二维数组，在本质上，是一个一维数组的列表。声明一个 x 行 y 列的二维整型数组，形式如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type arrayName [ x ][ y ];</span><br></pre></td></tr></table></figure>
+
+<p>其中，<strong>type</strong> 可以是任意有效的 C 数据类型，<strong>arrayName</strong> 是一个有效的 C 标识符。一个二维数组可以被认为是一个带有 x 行和 y 列的表格。下面是一个二维数组，包含 3 行和 4 列：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> x[<span class="number">3</span>][<span class="number">4</span>];</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://www.runoob.com/wp-content/uploads/2014/09/two_dimensional_arrays.jpg"></p>
+<h3 id="速度的讨论"><a href="#速度的讨论" class="headerlink" title="速度的讨论"></a>速度的讨论</h3><p>我们知道 CPU 访问内存的速度，比访问 CPU Cache 的速度慢了 100 多倍，所以如果 CPU 所要操作的数据在 CPU Cache 中的话，这样将会带来很大的性能提升。访问的数据在 CPU Cache 中的话，意味着<strong>缓存命中</strong>，缓存命中率越高的话，代码的性能就会越好，CPU 也就跑的越快。</p>
+<p>于是，「如何写出让 CPU 跑得更快的代码？」这个问题，可以改成「如何写出 CPU 缓存命中率高的代码？」。</p>
+<p>在前面我也提到， L1 Cache 通常分为「数据缓存」和「指令缓存」，这是因为 CPU 会别处理数据和指令，比如 <code>1+1=2</code> 这个运算，<code>+</code> 就是指令，会被放在「指令缓存」中，而输入数字 <code>1</code> 则会被放在「数据缓存」里。</p>
+<p>因此，<strong>我们要分开来看「数据缓存」和「指令缓存」的缓存命中率</strong>。</p>
+<p><strong>如何提升数据缓存的命中率？</strong></p>
+<p>假设要遍历二维数组，有以下两种形式，虽然代码执行结果是一样，但你觉得哪种形式效率最高呢？为什么高呢？</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZcKapyUj66hkhTng5Zof8DUaWq5KdzLgGiaTeUj6icIrEgVHbzteS2cMUQlbkEfiawYibpunTLQO08DBw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>经过测试，形式一 <code>array[i][j]</code> 执行时间比形式二 <code>array[j][i]</code> 快好几倍。</p>
+<p>之所以有这么大的差距，是因为二维数组 <code>array</code> 所占用的内存是连续的，比如长度 <code>N</code> 的指是 <code>2</code> 的话，那么内存中的数组元素的布局顺序是这样的：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZcKapyUj66hkhTng5Zof8DU1V6Raia4HWY3ZAUReO3jbvGHRib59hCUbpRZ612thav03UbGoujvSuSQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>形式一用 <code>array[i][j]</code> 访问数组元素的顺序，正是和内存中数组元素存放的顺序一致。当 CPU 访问 <code>array[0][0]</code> 时，由于该数据不在 Cache 中，于是会「顺序」把跟随其后的 3 个元素从内存中加载到 CPU Cache，这样当 CPU 访问后面的 3 个数组元素时，就能在 CPU Cache 中成功地找到数据，这意味着缓存命中率很高，缓存命中的数据不需要访问内存，这便大大提高了代码的性能。</p>
+<p>而如果用形式二的 <code>array[j][i]</code> 来访问，则访问的顺序就是：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZcKapyUj66hkhTng5Zof8DULaIspIibUC6T3XxxOlc0YRmlI6Wa8nHf1qviaDzxBLoAEdk61tmW4jNg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>你可以看到，访问的方式跳跃式的，而不是顺序的，那么如果 N 的数值很大，那么操作 <code>array[j][i]</code> 时，是没办法把 <code>array[j+1][i]</code> 也读入到 CPU Cache 中的，既然 <code>array[j+1][i]</code> 没有读取到 CPU Cache，那么就需要从内存读取该数据元素了。很明显，这种不连续性、跳跃式访问数据元素的方式，可能不能充分利用到了 CPU Cache 的特性，从而代码的性能不高。</p>
+<p>那访问 <code>array[0][0]</code> 元素时，CPU 具体会一次从内存中加载多少元素到 CPU Cache 呢？这个问题，在前面我们也提到过，这跟 CPU Cache Line 有关，它表示 <strong>CPU Cache 一次性能加载数据的大小</strong>，可以在 Linux 里通过 <code>coherency_line_size</code> 配置查看 它的大小，通常是 64 个字节。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZcKapyUj66hkhTng5Zof8DUpgXIYYgic3eJ5SHJNKFVRnLPwCd2qNnEGEichslHoZLWt8GsyEu49Nqg/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>也就是说，当 CPU 访问内存数据时，如果数据不在 CPU Cache 中，则会一次性会连续加载 64 字节大小的数据到 CPU Cache，那么当访问 <code>array[0][0]</code> 时，由于该元素不足 64 字节，于是就会往后<strong>顺序</strong>读取 <code>array[0][0]~array[0][15]</code> 到 CPU Cache 中。顺序访问的 <code>array[i][j]</code> 因为利用了这一特点，所以就会比跳跃式访问的 <code>array[j][i]</code> 要快。</p>
+<p><strong>因此，遇到这种遍历数组的情况时，按照内存布局顺序访问，将可以有效的利用 CPU Cache 带来的好处，这样我们代码的性能就会得到很大的提升，</strong></p>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><h3 id="指针本质"><a href="#指针本质" class="headerlink" title="指针本质"></a>指针本质</h3><p>定义一个变量实际就是向计算机申请了一块内存来存放，如果我们要想知道变量到底放在哪了呢？</p>
+<p>可以通过运算符<code>&amp;</code>来取得变量实际的地址，这个值就是变量所占内存块的起始地址，也就我们说的指针</p>
+<p>对，就是指针，你可以这样:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int *pa = &amp;a; </span><br></pre></td></tr></table></figure>
+
+<p>pa 中存储的就是变量 <code>a</code> 的地址，也叫做指向 <code>a</code> 的指针。</p>
+<p>在这里我想谈几个看起来有点无聊的话题：</p>
+<blockquote>
+<p>为什么我们需要指针？直接用变量名不行吗？</p>
+</blockquote>
+<p>当然可以，但是变量名是有局限的。</p>
+<blockquote>
+<p>变量名的本质是什么？</p>
+</blockquote>
+<p>是变量地址的符号化，变量是为了让我们编程时更加方便，对人友好，可计算机可不认识什么变量 <code>a</code>，它只知道地址和指令。</p>
+<p>所以当你去查看 C 语言编译后的汇编代码，就会发现变量名消失了，取而代之的是一串串抽象的地址。</p>
+<p>你可以认为，编译器会自动维护一个映射，将我们程序中的变量名转换为变量所对应的地址，然后再对这个地址去进行读写。</p>
+<p>也就是有这样一个映射表存在，将变量名自动转化为地址：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a  | <span class="number">0x7ffcad3b8f3c</span></span><br><span class="line">c  | <span class="number">0x7ffcad3b8f2c</span></span><br><span class="line">h  | <span class="number">0x7ffcad3b8f4c</span></span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+
+<p>说的好！</p>
+<p>可是我还是不知道指针存在的必要性，那么问题来了，看下面代码:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">func</span><span class="params">(...)</span> &#123;</span><br><span class="line">  ... </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line"> <span class="type">int</span> a;</span><br><span class="line"> func(...);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>假设我有一个需求：</p>
+<blockquote>
+<p>要求在<code>func</code> 函数里要能够修改 <code>main</code> 函数里的变量 <code>a</code>，这下咋整，在 <code>main</code> 函数里可以直接通过变量名去读写 <code>a</code> 所在内存。</p>
+<p>但是在 <code>func</code> 函数里是看不见<code>a</code> 的呀。</p>
+</blockquote>
+<p>你说可以通过<code>&amp;</code>取地址符号，将 <code>a</code> 的地址传递进去：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span> address)</span> &#123;</span><br><span class="line">  ....</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line"> <span class="type">int</span> a;</span><br><span class="line"> func(&amp;a);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这样在<code>func</code> 里就能获取到 <code>a</code> 的地址，进行读写了。</p>
+<p>理论上这是完全没有问题的，但是问题在于:</p>
+<p>编译器该如何区分一个 int 里你存的到底是 int 类型的值，还是另外一个变量的地址（即指针）。</p>
+<p>这如果完全靠我们编程人员去人脑记忆了，会引入复杂性，并且无法通过编译器检测一些语法错误。</p>
+<p>而通过<code>int *</code> 去定义一个指针变量，会非常明确：<strong>这就是另外一个 int 型变量的地址。</strong></p>
+<p>编译器也可以通过类型检查来排除一些编译错误。</p>
+<p>这就是指针存在的必要性。</p>
+<p>实际上任何语言都有这个需求，只不过很多语言为了安全性，给指针戴上了一层枷锁，将指针包装成了引用。</p>
+<p>可能大家学习的时候都是自然而然的接受指针这个东西，但是还是希望这段啰嗦的解释对你有一定启发。</p>
+<p>同时，在这里提点小问题：</p>
+<p>既然指针的本质都是变量的内存首地址，即一个 int 类型的整数。</p>
+<blockquote>
+<p>那为什么还要有各种类型呢？</p>
+</blockquote>
+<blockquote>
+<p>比如 int 指针，float 指针，这个类型影响了指针本身存储的信息吗？</p>
+</blockquote>
+<blockquote>
+<p>这个类型会在什么时候发挥作用？</p>
+</blockquote>
+<h3 id="解引用"><a href="#解引用" class="headerlink" title="解引用"></a>解引用</h3><p>上面的问题，就是为了引出指针解引用的。</p>
+<p><code>pa</code>中存储的是<code>a</code>变量的内存地址，那如何通过地址去获取<code>a</code>的值呢？</p>
+<p>这个操作就叫做<strong>解引用</strong>，在 C 语言中通过运算符 <code>*</code>就可以拿到一个指针所指地址的内容了。</p>
+<p>比如<code>*pa</code>就能获得<code>a</code>的值。</p>
+<p>我们说指针存储的是变量内存的首地址，那编译器怎么知道该从首地址开始取多少个字节呢？</p>
+<p>这就是指针类型发挥作用的时候，编译器会根据指针的所指元素的类型去判断应该取多少个字节。</p>
+<p>如果是 int 型的指针，那么编译器就会产生提取四个字节的指令，char 则只提取一个字节，以此类推。</p>
+<p>下面是指针内存示意图:</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_jpg/VyxCxUCalFNH8VEiaPpRgI3k5S4yoKqHtzyCUlqibmTrDPqc74FnGKEScziaP1Kq45LzFXh0icGaKxNkpswmeQibL7A/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><code>pa</code> 指针首先是一个变量，它本身也占据一块内存，这块内存里存放的就是 <code>a</code> 变量的首地址。</p>
+<p>当解引用的时候，就会从这个首地址连续划出 4 个 byte，然后按照 int 类型的编码方式解释</p>
+<h3 id="活学活用"><a href="#活学活用" class="headerlink" title="活学活用"></a>活学活用</h3><p>别看这个地方很简单，但却是深刻理解指针的关键。</p>
+<p>举两个例子来详细说明：</p>
+<p>比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">float f = 1.0;</span><br><span class="line">short c = *(short*)&amp;f; </span><br></pre></td></tr></table></figure>
+
+<p>你能解释清楚上面过程，对于 <code>f</code> 变量，在内存层面发生了什么变化吗？</p>
+<p>或者 <code>c</code> 的值是多少？1 ？</p>
+<p>实际上，从内存层面来说，<code>f</code> 什么都没变。</p>
+<p>如图:</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_jpg/VyxCxUCalFNH8VEiaPpRgI3k5S4yoKqHtFTszVicwvjlpiaTTTsTyxgk7FTug737kZ2Vib3YBp8hJdE7Er9qe1YDfQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>假设这是<code>f</code> 在内存中的位模式，这个过程实际上就是把 <code>f</code> 的前两个 byte 取出来然后按照 short 的方式解释，然后赋值给 <code>c</code>。</p>
+<p>详细过程如下：</p>
+<ol>
+<li><code>&amp;f</code>取得<code>f</code> 的首地址</li>
+<li><code>(short*)&amp;f</code></li>
+</ol>
+<p>上面第二步什么都没做，这个表达式只是说 ：</p>
+<p>“噢，我认为<code>f</code>这个地址放的是一个 short 类型的变量”</p>
+<p>最后当去解引用的时候<code>*(short*)&amp;f</code>时，编译器会取出前面两个字节，并且按照 short 的编码方式去解释，并将解释出的值赋给 <code>c</code> 变量。</p>
+<p>这个过程 <code>f</code>的位模式没有发生任何改变，变的只是解释这些位的方式。</p>
+<p>当然，这里最后的值肯定不是 1，至于是什么，大家可以去真正算一下。</p>
+<p>那反过来，这样呢？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">short c = 1;</span><br><span class="line">float f = *(float*)&amp;c;</span><br></pre></td></tr></table></figure>
+
+<p>如图：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_jpg/VyxCxUCalFNH8VEiaPpRgI3k5S4yoKqHthmSqSSibQdQmHickcglMzVEEvzX4TKXpzxh1cULSicz6IFTY7uBDgqhxQ/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p>具体过程和上述一样，但上面肯定不会报错，这里却不一定。</p>
+<p>为什么？</p>
+<p><code>(float*)&amp;c</code>会让我们从<code>c</code> 的首地址开始取四个字节，然后按照 float 的编码方式去解释。</p>
+<p>但是<code>c</code>是 short 类型只占两个字节，那肯定会访问到相邻后面两个字节，这时候就发生了内存访问越界。</p>
+<p>当然，如果只是读，大概率是没问题的。</p>
+<p>但是，有时候需要向这个区域写入新的值，比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*(float*)&amp;c = 1.0;</span><br></pre></td></tr></table></figure>
+
+<p>那么就可能发生 coredump，也就是访存失败。</p>
+<p>另外，就算是不会 coredump，这种也会破坏这块内存原有的值，因为很可能这是是其它变量的内存空间，而我们去覆盖了人家的内容，肯定会导致隐藏的 bug。</p>
+<p>如果你理解了上面这些内容，那么使用指针一定会更加的自如。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://38s51g4590.goho.co:81">查干湖</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://38s51g4590.goho.co:81/2023/01/11/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">http://38s51g4590.goho.co:81/2023/01/11/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://38s51g4590.goho.co:81" target="_blank">查干湖的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></div><div class="post_share"><div class="social-share" data-image="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/mind-544404_1280.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://lib.baomitu.com/social-share.js/1.0.16/css/share.min.css" media="print" onload="this.media='all'"><script src="https://lib.baomitu.com/social-share.js/1.0.16/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/19/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/sort-6799630_1280.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">排序算法</div></div></a></div><div class="next-post pull-right"><a href="/2023/01/04/%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%AD%98%E6%8C%87%E5%8D%97%EF%BC%88%E4%B8%80%EF%BC%89/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/books-1281581_1280.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">大学生存指南</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/01/19/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="二叉树"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/data-structure-7390522_1280.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-19</div><div class="title">二叉树</div></div></a></div><div><a href="/2023/01/19/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="排序算法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/sort-6799630_1280.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-19</div><div class="title">排序算法</div></div></a></div><div><a href="/2023/02/14/C%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%80%E7%94%9F/" title="C程序的一生"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/20230214205605.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-14</div><div class="title">C程序的一生</div></div></a></div><div><a href="/2022/12/04/VScode%E9%85%8D%E7%BD%AE%E4%B9%8Bc%E8%AF%AD%E8%A8%80/" title="VScode配置之c语言"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/coding-1853305_1280.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-04</div><div class="title">VScode配置之c语言</div></div></a></div><div><a href="/2022/12/17/%E5%85%B3%E4%BA%8E%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E7%9A%84%E4%BA%86%E8%A7%A3/" title="关于程序内存的二三事"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/tech-1137487_1280.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-17</div><div class="title">关于程序内存的二三事</div></div></a></div><div><a href="/2022/12/17/%E7%A8%8B%E5%BA%8F%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86/" title="变量是如何存在计算机中的"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/chip-1710300_1280.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-17</div><div class="title">变量是如何存在计算机中的</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%A4%B4%E5%83%8F1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">查干湖</div><div class="author-info__description">每个人生来就是妄想家</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuwenbolan"><i class="fab fa-github"></i><span>My Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xuwenbolan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xuwenbolan@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">C基础知识点总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E9%83%A8%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text">概念部分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E5%9E%8B%E4%B8%8E%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80"><span class="toc-number">2.1.</span> <span class="toc-text">解释型与编译型语言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%EF%BC%9A"><span class="toc-number">2.1.1.</span> <span class="toc-text">编译型语言：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%EF%BC%9A"><span class="toc-number">2.1.2.</span> <span class="toc-text">解释型语言：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E5%99%A8%E4%B8%8E%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">2.2.</span> <span class="toc-text">解释器与编译器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">编译器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E5%99%A8"><span class="toc-number">2.2.2.</span> <span class="toc-text">解释器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.3.1.</span> <span class="toc-text">整数类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.3.2.</span> <span class="toc-text">实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.3.3.</span> <span class="toc-text">浮点类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B-1"><span class="toc-number">2.3.4.</span> <span class="toc-text">实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#void-%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.3.5.</span> <span class="toc-text">void 类型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%83%A8%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">数据结构部分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">3.1.</span> <span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">3.1.1.</span> <span class="toc-text">定义一个字符串的方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E8%B5%8B%E5%80%BC"><span class="toc-number">3.1.2.</span> <span class="toc-text">给数组元素赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E8%BE%B9%E7%95%8C"><span class="toc-number">3.1.3.</span> <span class="toc-text">数组边界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">3.1.4.</span> <span class="toc-text">多维数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9F%E5%BA%A6%E7%9A%84%E8%AE%A8%E8%AE%BA"><span class="toc-number">3.1.5.</span> <span class="toc-text">速度的讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88"><span class="toc-number">3.2.</span> <span class="toc-text">指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E6%9C%AC%E8%B4%A8"><span class="toc-number">3.2.1.</span> <span class="toc-text">指针本质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%BC%95%E7%94%A8"><span class="toc-number">3.2.2.</span> <span class="toc-text">解引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B4%BB%E5%AD%A6%E6%B4%BB%E7%94%A8"><span class="toc-number">3.2.3.</span> <span class="toc-text">活学活用</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/08/10/Linear%20Algebra/" title="Linear Algebra(Basic)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/mathematics-1509559_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linear Algebra(Basic)"/></a><div class="content"><a class="title" href="/2023/08/10/Linear%20Algebra/" title="Linear Algebra(Basic)">Linear Algebra(Basic)</a><time datetime="2023-08-10T03:16:00.000Z" title="发表于 2023-08-10 11:16:00">2023-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" title="面向对象和面向过程"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/20230302140557.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面向对象和面向过程"/></a><div class="content"><a class="title" href="/2023/03/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" title="面向对象和面向过程">面向对象和面向过程</a><time datetime="2023-03-02T05:46:00.000Z" title="发表于 2023-03-02 13:46:00">2023-03-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/14/C%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%80%E7%94%9F/" title="C程序的一生"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/20230214205605.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C程序的一生"/></a><div class="content"><a class="title" href="/2023/02/14/C%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%80%E7%94%9F/" title="C程序的一生">C程序的一生</a><time datetime="2023-02-14T13:30:00.000Z" title="发表于 2023-02-14 21:30:00">2023-02-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/28/VScode%E9%85%8D%E7%BD%AE%E4%B9%8BSSH/" title="VScode配置之SSH"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/telework-5059653_1280.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VScode配置之SSH"/></a><div class="content"><a class="title" href="/2023/01/28/VScode%E9%85%8D%E7%BD%AE%E4%B9%8BSSH/" title="VScode配置之SSH">VScode配置之SSH</a><time datetime="2023-01-28T10:53:00.000Z" title="发表于 2023-01-28 18:53:00">2023-01-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/19/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" title="Typora + PicGo + 阿里云OSS图床搭建"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/server-5451985_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Typora + PicGo + 阿里云OSS图床搭建"/></a><div class="content"><a class="title" href="/2023/01/19/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" title="Typora + PicGo + 阿里云OSS图床搭建">Typora + PicGo + 阿里云OSS图床搭建</a><time datetime="2023-01-19T12:36:00.000Z" title="发表于 2023-01-19 20:36:00">2023-01-19</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/%E5%A3%81%E7%BA%B88.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 查干湖</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/jscss/fancybox.umd.min.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/vanilla-lazyload/17.3.1/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'n06B5bNgXEaB60kHaVtFM0B1-gzGzoHsz',
+      appKey: 'c2hUC6MlQcS9pTcu1WOZd3VR',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/valine/1.4.16/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script id="click-show-text" src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/jscss/click-show-text.min.js" data-mobile="true" data-text="Welcome,my,blog" data-fontsize="15px" data-random="false" async="async"></script></div></body></html>

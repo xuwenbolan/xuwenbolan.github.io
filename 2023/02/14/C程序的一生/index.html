@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>C程序的一生 | 查干湖的博客</title><meta name="author" content="查干湖,xuwenbolan@163.com"><meta name="copyright" content="查干湖"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="不知道大家有没有这样一个疑问：当我们在C&#x2F;C++的IDE上敲完一个程序的代码后，只需要点击编译运行按钮稍微等待几秒就可以生成一个可执行程序，那编译运行这个过程到底是怎样的呢？由**.c&#x2F;.cpp源文件如何得到.exe**（Windows）可执行文件呢？ 相信看完本文，你会有一个清晰的答案: )   简单来说，整个过程分为四个阶段：预处理（Pre-Processing）、编译（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C程序的一生">
+<meta property="og:url" content="http://38s51g4590.goho.co:81/2023/02/14/C%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%80%E7%94%9F/index.html">
+<meta property="og:site_name" content="查干湖的博客">
+<meta property="og:description" content="不知道大家有没有这样一个疑问：当我们在C&#x2F;C++的IDE上敲完一个程序的代码后，只需要点击编译运行按钮稍微等待几秒就可以生成一个可执行程序，那编译运行这个过程到底是怎样的呢？由**.c&#x2F;.cpp源文件如何得到.exe**（Windows）可执行文件呢？ 相信看完本文，你会有一个清晰的答案: )   简单来说，整个过程分为四个阶段：预处理（Pre-Processing）、编译（">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/20230214205605.png">
+<meta property="article:published_time" content="2023-02-14T13:30:00.000Z">
+<meta property="article:modified_time" content="2023-03-02T01:14:37.185Z">
+<meta property="article:author" content="查干湖">
+<meta property="article:tag" content="C语言">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="计算机组成原理">
+<meta property="article:tag" content="学习记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/20230214205605.png"><link rel="shortcut icon" href="/img/%E5%A4%B4%E5%83%8F1.png"><link rel="canonical" href="http://38s51g4590.goho.co:81/2023/02/14/C%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%80%E7%94%9F/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/jscss/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0b369db88206e24a08f4a63ca50eb6c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"It has been","messageNext":"距离文章更新已经过去很久了，内容或许会出现错误，请谅解！"},
+  highlight: {"plugin":"highlighjs","highlightCopy":false,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C程序的一生',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-02 09:14:37'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%A4%B4%E5%83%8F1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/%E5%A3%81%E7%BA%B88.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">查干湖的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C程序的一生</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-14T13:30:00.000Z" title="发表于 2023-02-14 21:30:00">2023-02-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-02T01:14:37.185Z" title="更新于 2023-03-02 09:14:37">2023-03-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/">程序语言</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>不知道大家有没有这样一个疑问：当我们在C&#x2F;C++的IDE上敲完一个程序的代码后，只需要点击<strong>编译运行</strong>按钮稍微等待几秒就可以生成一个可执行程序，那编译运行这个过程到底是怎样的呢？由**.c&#x2F;.cpp<strong>源文件如何得到</strong>.exe**（Windows）可执行文件呢？</p>
+<p>相信看完本文，你会有一个清晰的答案: )</p>
+</blockquote>
+<hr>
+<p>简单来说，整个过程分为四个阶段：<em>预处理（Pre-Processing）</em>、<em>编译（Compilation）</em>、<em>汇编（Assembling）</em>、<em>链接（Linking）</em>。如下图所示（来自<a target="_blank" rel="noopener" href="http://csapp.cs.cmu.edu/">CSAPP</a>一书）。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/ones.png" alt="img"></p>
+<p>注意：其中<em>源程序、修改了的源程序和汇编程序</em>都是<em>文本文件</em>，而<em>可重定位目标程序和可执行目标程序</em>都是<em>二进制文件</em>。</p>
+<p>似乎到这里就该结束了，因为整个过程已经讲完了?。当然如果只是这样介绍的话本文就没有存在的价值了，我们还得再深入一点分别讲解这四个阶段?</p>
+<h3 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h3><p>首先我们准备一个简单的<strong>Hello World</strong>程序，命名为<code>main.c</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> info <span class="string">&quot;Hello, world\n&quot;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;       </span><br><span class="line">    <span class="comment">// A simple program.</span></span><br><span class="line">    <span class="built_in">printf</span>(info);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>预处理阶段做的事情就是预处理器（cpp）根据以字符*#*开头的代码修改原始的C程序。</p>
+<ul>
+<li>比如<code>#include &lt;stdio.h&gt;</code>，将头文件<em>stdio.h</em>中的内容加到程序文本中</li>
+<li>比如<code>#define info &quot;Hello, world\n&quot;</code>，会将宏定义的<strong>info</strong>替换成字符串*”Hello, world\n”*（当然我这里只是为了举例，一般我们不这么写）</li>
+<li>此外，会将注释比如<code>// A simple program.</code>删除</li>
+</ul>
+<p>预处理是直接对源文件进行处理（不关注语法规则）， 然后得到另一个C程序，通常以**.i**作为文件扩展名。</p>
+<p>我们可以在Linux系统（我这里用的是Ubuntu）下直接使用<code>gcc -E main.c -o main.i</code>命令得到预处理后的C程序<code>main.i</code>。我截取了一部分（总共有800+行），可以很明显的看到：引入了头文件，info被替换了，注释没了，还添加了一些特殊的标记，告诉编译器每行的来源，以便它可以使用它们来产生合理的错误消息。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># <span class="number">1</span> <span class="string">&quot;main.c&quot;</span></span><br><span class="line"># <span class="number">1</span> <span class="string">&quot;&lt;built-in&gt;&quot;</span></span><br><span class="line"># <span class="number">1</span> <span class="string">&quot;&lt;command-line&gt;&quot;</span></span><br><span class="line"># <span class="number">31</span> <span class="string">&quot;&lt;command-line&gt;&quot;</span></span><br><span class="line"># <span class="number">1</span> <span class="string">&quot;/usr/include/stdc-predef.h&quot;</span> <span class="number">1</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line">......</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="type">void</span> <span class="title function_">funlockfile</span> <span class="params">(FILE *__stream)</span> __<span class="title function_">attribute__</span> <span class="params">((__nothrow__ , __leaf__))</span>;</span><br><span class="line"># <span class="number">868</span> <span class="string">&quot;/usr/include/stdio.h&quot;</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line"># <span class="number">2</span> <span class="string">&quot;main.c&quot;</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"># <span class="number">3</span> <span class="string">&quot;main.c&quot;</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, world\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>编译阶段做的事情就是编译器（cc1）将C程序<code>main.i</code>翻译成汇编语言程序<code>main.s</code>。</p>
+<ul>
+<li>检查C程序的语法错误</li>
+<li>将文件翻译成中间代码，即汇编语言</li>
+<li>可选地优化翻译后的中间代码，获得更好的性能</li>
+</ul>
+<p>我们可以使用<code>gcc -S main.i -o main.s</code>得到翻译后的汇编程序<code>main.s</code>，截取部分如下。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    .file   <span class="string">&quot;main.c&quot;</span></span><br><span class="line">    .text</span><br><span class="line">.LC0:</span><br><span class="line">    .<span class="built_in">string</span> <span class="string">&quot;Hello, world&quot;</span></span><br><span class="line">    .text</span><br><span class="line">    .globl  main</span><br><span class="line">main:</span><br><span class="line">.LFB0:</span><br><span class="line">    .cfi_startproc</span><br><span class="line">    pushq   %rbp</span><br><span class="line">    movq    %rsp, %rbp</span><br><span class="line">......</span><br><span class="line">.LFE0:</span><br><span class="line">    .size   main, .-main</span><br><span class="line">    .ident  <span class="string">&quot;GCC: (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0&quot;</span></span><br><span class="line">    .section    .note.GNU-<span class="built_in">stack</span>,<span class="string">&quot;&quot;</span>,@progbits</span><br></pre></td></tr></table></figure>
+
+<p>其中的语句比如<code>pushq %rbp</code>描述了一条低级机器语言指令。汇编语言是有用的，它为不同高级语言的不同汇编器提供了通用的输出语言，C汇编器和Fortran汇编器产生的输出文件都是一样的汇编语言。</p>
+<h3 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h3><p>汇编阶段做的事情就是汇编器（as）将<code>main.s</code>翻译成机器语言指令，把这些指令打包成一种叫做可重定位目标程序的格式，并将结果保存在目标文件<code>main.o</code>（Windows下为xx.obj而Linux下为xx.o）中。<code>main.o</code>是一个二进制文件，如果我们使用文本编辑器打开<code>main.o</code>，会看到一堆乱码。</p>
+<p>我们可以使用<code>gcc -c main.s -o main.o</code>得到可重定位目标程序<code>main.o</code>，如下所示。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LF&gt;?@@</span><br><span class="line">UH䈍=距ello, worldGCC: (Ubuntu <span class="number">7.3</span><span class="number">.0</span><span class="number">-27u</span>buntu1~<span class="number">18.04</span>) <span class="number">7.3</span><span class="number">.0</span>zRx </span><br><span class="line"><span class="meta">#main.cmain_GLOBAL_OFFSET_TABLE_puts?ÿÿ                      C </span></span><br><span class="line">?                                       </span><br><span class="line">                                       ?ÿÿ .symtab.strtab.shstrtab.rela.text.data.bss.rodata.comment.note.GNU-<span class="built_in">stack</span>.rela.eh_frame @<span class="number">0</span>            &amp;<span class="number">90</span>d+BWR@@ </span><br></pre></td></tr></table></figure>
+
+<p>不出所料的一堆乱码?。</p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>我们的<em>main.c</em>程序中使用了<em>printf</em>函数，<em>printf</em>函数是每个C编译器都提供的标准C库中的一个函数，它存在于一个名为<code>printf.o</code>的单独预编译好了的目标文件中。</p>
+<p>链接阶段做的事情就是链接器（ld）将需要用到的目标文件比如<code>main.o</code>和<code>printf.o</code>进行合并，并生成一个可执行（目标）文件，可以被加载到内存中，由系统执行。</p>
+<p>实际上我们直接执行<code>gcc main.c -o main</code>命令得到的就是可执行文件，Windows下为*.exe<em>，Linux下默认为具有可执行权限的</em>a.out*，当然我们使用了<code>-o</code>来自定义输出文件名。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/twos.png" alt="img"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/threes.png" alt="img"></p>
+<p>以上就是整个编译执行过程，看到这里你有没有明白了呢?。</p>
+<hr>
+<h3 id="By-the-way"><a href="#By-the-way" class="headerlink" title="By the way"></a>By the way</h3><p>顺便提一下，你知道编译型语言（C&#x2F;C++）和解释性语言（Python&#x2F;<em>JAVA</em>）的区别吗？</p>
+<p>这里引用一下知乎某个<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21486706">匿名用户的回答</a>，很有意思。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/four.jpg" alt="img"></p>
+<p>形象的解释就是这样，详细的解释可以参考<em>卡图卢斯</em>的博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u014647208/article/details/78329187">【Language】解释性语言和编译型语言的区别和不同</a>和<strong>jack-zhu</strong>的博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zhu_xun/article/details/16921413">解释型语言和编译型语言的区别</a>，下面也放一张图片。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/20230214140614.png" alt="img"></p>
+<h3 id="By-the-way2"><a href="#By-the-way2" class="headerlink" title="By the way2"></a>By the way2</h3><p>没想到吧，还有一个惊喜?。</p>
+<p>关于Windows下*.obj、.lib、.dll、.exe*文件的关系和Linux下 <em>.o、.a、.so</em>文件的关系详细解释可以参考<strong>Oldpan</strong>的<a target="_blank" rel="noopener" href="https://oldpan.me/archives/linux-a-so-o-tell">博客</a>，讲的很清楚。</p>
+<p>简单来说，*.obj<em>就是我们在汇编阶段得到的可重定位目标程序，</em>.lib<em>是静态链接库的库文件，</em>.dll<em>是动态链接库的库文件，</em>.lib<em>和.<em>dll</em>都是多个</em>.obj<em>文件的集合，其中</em>.lib<em>是程序编译时汇编阶段需要的，</em>dll<em>是</em>.exe*运行时需要调用的。</p>
+<p>Linux下的*.o<em>对于Windows下的</em>.obj<em>，</em>.a<em>对应</em>.lib<em>，</em>.so<em>对应</em>.dll*。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://38s51g4590.goho.co:81">查干湖</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://38s51g4590.goho.co:81/2023/02/14/C%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%80%E7%94%9F/">http://38s51g4590.goho.co:81/2023/02/14/C%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%80%E7%94%9F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://38s51g4590.goho.co:81" target="_blank">查干湖的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C%E8%AF%AD%E8%A8%80/">C语言</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></div><div class="post_share"><div class="social-share" data-image="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/20230214205605.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://lib.baomitu.com/social-share.js/1.0.16/css/share.min.css" media="print" onload="this.media='all'"><script src="https://lib.baomitu.com/social-share.js/1.0.16/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/03/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/20230302140557.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">面向对象和面向过程</div></div></a></div><div class="next-post pull-right"><a href="/2023/01/28/VScode%E9%85%8D%E7%BD%AE%E4%B9%8BSSH/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/telework-5059653_1280.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">VScode配置之SSH</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/12/17/%E7%A8%8B%E5%BA%8F%E5%8F%98%E9%87%8F%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86/" title="变量是如何存在计算机中的"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/chip-1710300_1280.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-17</div><div class="title">变量是如何存在计算机中的</div></div></a></div><div><a href="/2022/12/17/%E5%85%B3%E4%BA%8E%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E7%9A%84%E4%BA%86%E8%A7%A3/" title="关于程序内存的二三事"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/tech-1137487_1280.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-17</div><div class="title">关于程序内存的二三事</div></div></a></div><div><a href="/2023/01/19/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="二叉树"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/data-structure-7390522_1280.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-19</div><div class="title">二叉树</div></div></a></div><div><a href="/2023/01/19/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="排序算法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/sort-6799630_1280.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-19</div><div class="title">排序算法</div></div></a></div><div><a href="/2023/03/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" title="面向对象和面向过程"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/20230302140557.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-02</div><div class="title">面向对象和面向过程</div></div></a></div><div><a href="/2023/01/11/C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" title="C基础知识点总结"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/mind-544404_1280.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-11</div><div class="title">C基础知识点总结</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E5%A4%B4%E5%83%8F1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">查干湖</div><div class="author-info__description">每个人生来就是妄想家</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xuwenbolan"><i class="fab fa-github"></i><span>My Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xuwenbolan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xuwenbolan@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-number">2.</span> <span class="toc-text">编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%87%E7%BC%96"><span class="toc-number">3.</span> <span class="toc-text">汇编</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#By-the-way"><span class="toc-number">5.</span> <span class="toc-text">By the way</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#By-the-way2"><span class="toc-number">6.</span> <span class="toc-text">By the way2</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/08/10/Linear%20Algebra/" title="Linear Algebra(Basic)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/mathematics-1509559_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linear Algebra(Basic)"/></a><div class="content"><a class="title" href="/2023/08/10/Linear%20Algebra/" title="Linear Algebra(Basic)">Linear Algebra(Basic)</a><time datetime="2023-08-10T03:16:00.000Z" title="发表于 2023-08-10 11:16:00">2023-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" title="面向对象和面向过程"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/20230302140557.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面向对象和面向过程"/></a><div class="content"><a class="title" href="/2023/03/02/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8E%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" title="面向对象和面向过程">面向对象和面向过程</a><time datetime="2023-03-02T05:46:00.000Z" title="发表于 2023-03-02 13:46:00">2023-03-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/14/C%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%80%E7%94%9F/" title="C程序的一生"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/20230214205605.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C程序的一生"/></a><div class="content"><a class="title" href="/2023/02/14/C%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%80%E7%94%9F/" title="C程序的一生">C程序的一生</a><time datetime="2023-02-14T13:30:00.000Z" title="发表于 2023-02-14 21:30:00">2023-02-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/28/VScode%E9%85%8D%E7%BD%AE%E4%B9%8BSSH/" title="VScode配置之SSH"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/telework-5059653_1280.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VScode配置之SSH"/></a><div class="content"><a class="title" href="/2023/01/28/VScode%E9%85%8D%E7%BD%AE%E4%B9%8BSSH/" title="VScode配置之SSH">VScode配置之SSH</a><time datetime="2023-01-28T10:53:00.000Z" title="发表于 2023-01-28 18:53:00">2023-01-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/19/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" title="Typora + PicGo + 阿里云OSS图床搭建"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/img/server-5451985_1280.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Typora + PicGo + 阿里云OSS图床搭建"/></a><div class="content"><a class="title" href="/2023/01/19/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" title="Typora + PicGo + 阿里云OSS图床搭建">Typora + PicGo + 阿里云OSS图床搭建</a><time datetime="2023-01-19T12:36:00.000Z" title="发表于 2023-01-19 20:36:00">2023-01-19</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/%E5%A3%81%E7%BA%B88.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 查干湖</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/jscss/fancybox.umd.min.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/vanilla-lazyload/17.3.1/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'n06B5bNgXEaB60kHaVtFM0B1-gzGzoHsz',
+      appKey: 'c2hUC6MlQcS9pTcu1WOZd3VR',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/valine/1.4.16/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script id="click-show-text" src="https://chaganhu-blog.oss-cn-guangzhou.aliyuncs.com/jscss/click-show-text.min.js" data-mobile="true" data-text="Welcome,my,blog" data-fontsize="15px" data-random="false" async="async"></script></div></body></html>
